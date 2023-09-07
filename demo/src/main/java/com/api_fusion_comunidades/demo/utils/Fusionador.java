@@ -20,9 +20,7 @@ public class Fusionador {
     return comunidades;
   }
 
-
-
-  private Comunidad crearComunidadFusionada (Comunidad comunidad1, Comunidad comunidad2) {
+  public Comunidad crearComunidadFusionada (Comunidad comunidad1, Comunidad comunidad2) {
     Set<Integer> nuevosEstablecimientosObservados = new HashSet<>();
     nuevosEstablecimientosObservados.addAll(comunidad1.getIdEstablecimientoObservados());
     nuevosEstablecimientosObservados.addAll(comunidad2.getIdEstablecimientoObservados());

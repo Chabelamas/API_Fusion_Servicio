@@ -1,14 +1,11 @@
 package com.api_fusion_comunidades.demo.utils;
 
-import com.api_fusion_comunidades.demo.conifg.Config;
 import com.api_fusion_comunidades.demo.models.Comunidad;
-import com.api_fusion_comunidades.demo.models.ContextoComunidadesDTO;
+import com.api_fusion_comunidades.demo.models.PayloadDTO;
 import com.api_fusion_comunidades.demo.models.Fusion;
 import com.api_fusion_comunidades.demo.utils.condicionesDeFusion.*;
 
-import java.time.LocalDateTime;
 import java.util.*;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Sugeridor {
   private List<CondicionDeFusion> condicionesBasicasDeFusiones = new ArrayList<>();
@@ -21,7 +18,7 @@ public class Sugeridor {
     this.condicionesBasicasDeFusiones.add(new NoSePropusoHacePoco());
   }
 
-  public ContextoComunidadesDTO sugerirNuevasFusiones(List<Comunidad> comunidades, List<Fusion> fusiones) {
+  public PayloadDTO sugerirNuevasFusiones(List<Comunidad> comunidades, List<Fusion> fusiones) {
     Set<Comunidad> comunidadesConNuevaPropuesta = new HashSet<>();
 
     for(Comunidad comunidad1 : comunidades) {
@@ -35,7 +32,7 @@ public class Sugeridor {
       }
     }
 
-    return new ContextoComunidadesDTO(comunidades, fusiones);
+    return new PayloadDTO(comunidades, fusiones);
   }
 
   private boolean sonComunidadesValidas(Comunidad comunidad1, Comunidad comunidad2, Set<Comunidad> comunidadesConNuevaPropuesta) {

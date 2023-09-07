@@ -5,11 +5,11 @@ import lombok.Getter;
 import java.util.List;
 
 @Getter
-public class ContextoComunidadesDTO {
+public class PayloadDTO {
   private List<Comunidad> comunidades;
   private List<Fusion> fusiones;
 
-  public ContextoComunidadesDTO(List<Comunidad> comunidades, List<Fusion> fusiones) {
+  public PayloadDTO(List<Comunidad> comunidades, List<Fusion> fusiones) {
     this.comunidades = comunidades;
     this.fusiones = fusiones;
   }

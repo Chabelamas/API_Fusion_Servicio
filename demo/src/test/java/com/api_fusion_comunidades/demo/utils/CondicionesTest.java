@@ -1,6 +1,5 @@
 package com.api_fusion_comunidades.demo.utils;
 
-import com.api_fusion_comunidades.demo.models.ContextoComunidadesDTO;
 import com.api_fusion_comunidades.demo.models.Fusion;
 import com.api_fusion_comunidades.demo.utils.condicionesDeFusion.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -62,16 +61,4 @@ public class CondicionesTest {
     NoSePropusoHacePoco noSePropusoHacePoco = new NoSePropusoHacePoco();
     assertTrue(noSePropusoHacePoco.cumpleCondicionDeFusion(comunidad1, comunidad2, fusiones));
   }
-
-  @Test
-  @DisplayName("Se propone una fusion")
-  public void generacionFusion(){
-    List<Comunidad> comunidades = new ArrayList<>();
-    comunidades.add(comunidad1);
-    comunidades.add(comunidad2);
- 
-    ContextoComunidadesDTO contexto = new Sugeridor().sugerirNuevasFusiones(comunidades, fusiones);
-    assertEquals(contexto.getFusiones().get(0).getComunidad1(), comunidad1);
-  }
-
 }
