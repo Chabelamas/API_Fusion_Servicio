@@ -5,17 +5,18 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Getter@Setter
 public class Comunidad {
 
     private Integer id;
-    private List<Integer> idEstablecimientoObservados;
-    private List<Integer> idServiciosObservados;
+    private Set<Integer> idEstablecimientoObservados;
+    private Set<Integer> idServiciosObservados;
     private int gradoDeConfianza;
-    private List<Integer> idMiembros;
+    private Set<Integer> idMiembros;
 
-    public Comunidad(Integer id, List<Integer> idEstablecimientoObservados, List<Integer> idServiciosObservados, int gradoDeConfianza, List<Integer> idMiembros) {
+    public Comunidad(Integer id, Set<Integer> idEstablecimientoObservados, Set<Integer> idServiciosObservados, int gradoDeConfianza, Set<Integer> idMiembros) {
         this.id = id;
         this.idEstablecimientoObservados = idEstablecimientoObservados;
         this.idServiciosObservados = idServiciosObservados;

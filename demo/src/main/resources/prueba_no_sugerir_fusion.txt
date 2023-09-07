@@ -1,0 +1,26 @@
+{
+  "comunidades": [
+    {
+      "id": 1,
+      "idEstablecimientoObservados": [1],
+      "idServiciosObservados": [1],
+      "gradoDeConfianza": 1,
+      "idMiembros": [1]
+    },
+    {
+      "id": 2,
+      "idEstablecimientoObservados": [1],
+      "idServiciosObservados": [1],
+      "gradoDeConfianza": 1,
+      "idMiembros": [1]
+    }
+  ],
+  "fusiones": [
+      {
+        "estado": "PROPUESTA",
+        "id_comunidad1": 1,
+        "id_comunidad2": 2,
+        "fechaCreada": "2023-09-07T11:05:51.4849194"
+    }
+  ]
+}

@@ -5,8 +5,10 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.Date;
-@Getter@Setter
+
+@Getter @Setter
 public class Fusion {
+    private EstadoFusion estado;
     private Comunidad comunidad1;
     private Comunidad comunidad2;
     private LocalDateTime fechaCreada;
@@ -15,10 +17,26 @@ public class Fusion {
         this.comunidad1 = comunidad1;
         this.comunidad2 = comunidad2;
         this.fechaCreada = LocalDateTime.now();
+        this.estado = EstadoFusion.PROPUESTA;
     }
 
-    public Boolean mismasComunidades (Comunidad a, Comunidad b) {
-        return (comunidad1.equals(a) && comunidad2.equals(b))||(comunidad1.equals(b) && comunidad2.equals(a));
+    public enum EstadoFusion {
+        PROPUESTA,
+        ACEPTADA,
+        RECHAZADA
+    }
+
+    public Boolean esUnaPropuestaPara (Comunidad comunidadA, Comunidad comunidadB) {
+        return sonLasComunidadesDeLaFusion(comunidadA, comunidadB) && this.estado == EstadoFusion.PROPUESTA;
+    }
+
+    private Boolean sonLasComunidadesDeLaFusion(Comunidad comunidadA, Comunidad comunidadB) {
+        Integer id_comunidad1 = comunidad1.getId();
+        Integer id_comunidad2 = comunidad2.getId();
+        Integer id_comunidadA = comunidadA.getId();
+        Integer id_comunidadB = comunidadB.getId();
+
+        return ( (id_comunidad1.equals(id_comunidadA)||id_comunidad1.equals(id_comunidadB)) && (id_comunidad2.equals(id_comunidadA)||id_comunidad2.equals(id_comunidadB)) );
     }
 
 }

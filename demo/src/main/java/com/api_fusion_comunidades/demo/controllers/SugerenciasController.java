@@ -1,24 +1,23 @@
 package com.api_fusion_comunidades.demo.controllers;
 
-import com.api_fusion_comunidades.demo.models.Comunidad;
 import com.api_fusion_comunidades.demo.models.Fusion;
-import com.api_fusion_comunidades.demo.services.GestorDeFusionDeComunidades;
+import com.api_fusion_comunidades.demo.models.ContextoComunidadesDTO;
+import com.api_fusion_comunidades.demo.services.SugerenciasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController @RequestMapping("/sugerencias")
 public class SugerenciasController {
   @Autowired
-  private GestorDeFusionDeComunidades sugerenciaService;
+  private SugerenciasService sugerenciaService;
 
   @PostMapping
-  public ResponseEntity<List<Fusion>> sugerirFusion(@RequestBody SolicitudDTO solicitud){
-    List<Fusion> fusiones = sugerenciaService.sugerirFusion(solicitud.getComunidades(), solicitud.getFusiones());
-    return ResponseEntity.ok(fusiones);
+  public ResponseEntity<ContextoComunidadesDTO> sugerirFusiones(@RequestBody ContextoComunidadesDTO solicitud){
+    ContextoComunidadesDTO comunidadesYFusiones = sugerenciaService.sugerirFusiones(solicitud.getComunidades(), solicitud.getFusiones());
+    return ResponseEntity.ok(comunidadesYFusiones);
   }
 
 }

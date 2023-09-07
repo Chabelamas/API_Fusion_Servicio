@@ -1,4 +1,4 @@
-package com.api_fusion_comunidades.demo.models;
+package com.api_fusion_comunidades.demo.conifg;
 
 import java.io.IOException;
 import java.io.InputStream;
