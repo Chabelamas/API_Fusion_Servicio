@@ -11,6 +11,6 @@ public class UsuariosEnComun implements CondicionDeFusion {
     public Boolean cumpleCondicionDeFusion(Comunidad comunidad1, Comunidad comunidad2) {
         float porcentajeEnComun = Calculador.obtenerInstancia().calcularPorcentajeEnComun(comunidad1.getIdMiembros(), comunidad2.getIdMiembros());
 
-        return porcentajeEnComun > porcentajeRequerido;
+        return porcentajeEnComun == porcentajeRequerido;
     }
 }

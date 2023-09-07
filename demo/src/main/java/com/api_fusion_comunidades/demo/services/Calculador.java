@@ -16,18 +16,16 @@ public class Calculador {
     }
 
     public float calcularPorcentajeEnComun(List<Integer> lista1, List<Integer> lista2) {
-        Integer cantidadDeElementosTotal = Math.min(lista1.size(), lista2.size());
-        Integer elementosEnComun = 0;
+        float cantidadDeElementosTotal = (float) Math.min(lista1.size(), lista2.size());
+        float elementosEnComun = 0F;
 
-
-        for(Integer elemento1 : lista1) {
-            for(Integer elemento2 : lista2) {
-                if(elemento1.equals(elemento2)) {
+        for(float elemento1 : lista1) {
+            for(float elemento2 : lista2) {
+                if(elemento1 == elemento2) {
                     elementosEnComun++;
                 }
             }
         }
-
-        return (elementosEnComun / cantidadDeElementosTotal);
+        return (elementosEnComun/cantidadDeElementosTotal);
     }
 }

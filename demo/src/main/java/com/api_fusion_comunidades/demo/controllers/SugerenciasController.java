@@ -5,22 +5,23 @@ import com.api_fusion_comunidades.demo.models.Fusion;
 import com.api_fusion_comunidades.demo.services.GestorDeFusionDeComunidades;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController @RequestMapping("/sugerencias")
 public class SugerenciasController {
   @Autowired
-  private GestorDeFusionDeComunidades gestor;
+  private GestorDeFusionDeComunidades sugerenciaService;
 
-  @GetMapping
+  @PostMapping
   public ResponseEntity<List<Fusion>> sugerirFusion(@RequestBody SolicitudDTO solicitud){
-
-    return ResponseEntity.ok(gestor.sugerirFusion(solicitud.getComunidades(), solicitud.getFusiones()));
+    List<Fusion> fusiones = sugerenciaService.sugerirFusion(solicitud.getComunidades(), solicitud.getFusiones());
+    return ResponseEntity.ok(fusiones);
   }
 
 }
+
+
+

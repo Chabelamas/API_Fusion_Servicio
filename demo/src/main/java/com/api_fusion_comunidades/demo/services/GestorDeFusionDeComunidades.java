@@ -2,7 +2,6 @@ package com.api_fusion_comunidades.demo.services;
 
 import com.api_fusion_comunidades.demo.models.Comunidad;
 import com.api_fusion_comunidades.demo.models.Config;
-import com.api_fusion_comunidades.demo.models.EstadoFusion;
 import com.api_fusion_comunidades.demo.models.Fusion;
 import com.api_fusion_comunidades.demo.models.condicionesDeFusion.*;
 import org.springframework.stereotype.Service;
@@ -11,6 +10,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 @Service
 public class GestorDeFusionDeComunidades {
     private ArrayList<CondicionDeFusion> condicionesBasicasDeFusiones;
@@ -35,18 +35,11 @@ public class GestorDeFusionDeComunidades {
                 }
             }
         }
-
-        fusiones.addAll(propuestas);
         return propuestas;
     }
 
     public Fusion crearPropuestaDeFusion(Comunidad comunidad1, Comunidad comunidad2) {
-        Fusion nuevaPropuesta = new Fusion();
-        nuevaPropuesta.setComunidad1(comunidad1);
-        nuevaPropuesta.setComunidad2(comunidad2);
-        nuevaPropuesta.setFechaCreada(LocalDateTime.now());
-        nuevaPropuesta.setEstado(EstadoFusion.PROPUESTA);
-        return nuevaPropuesta;
+        return new Fusion(comunidad1, comunidad2);
     }
 
     public Boolean cumpleCondicionesDeFusion(Comunidad comunidad1, Comunidad comunidad2, List<Fusion> fusiones) {
