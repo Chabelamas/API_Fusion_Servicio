@@ -19,23 +19,24 @@ public class Sugeridor {
   }
 
   public PayloadDTO sugerirNuevasFusiones(List<Comunidad> comunidades, List<Fusion> fusiones) {
-    Set<Comunidad> comunidadesConNuevaPropuesta = new HashSet<>();
+    List<Comunidad> comunidadesConNuevaPropuesta = new ArrayList<>();
+    List<Fusion> nuevasFusiones = new ArrayList<>(fusiones);
 
     for(Comunidad comunidad1 : comunidades) {
       for (Comunidad comunidad2 : comunidades) {
         if (this.sonComunidadesValidas(comunidad1, comunidad2, comunidadesConNuevaPropuesta)
             && this.cumpleCondicionesDeFusion(comunidad1, comunidad2, fusiones)) {
-          fusiones.add(new Fusion(comunidad1, comunidad2));
+          nuevasFusiones.add(new Fusion(comunidad1, comunidad2));
           comunidadesConNuevaPropuesta.add(comunidad1);
           comunidadesConNuevaPropuesta.add(comunidad2);
         }
       }
     }
 
-    return new PayloadDTO(comunidades, fusiones);
+    return new PayloadDTO(comunidades, nuevasFusiones);
   }
 
-  private boolean sonComunidadesValidas(Comunidad comunidad1, Comunidad comunidad2, Set<Comunidad> comunidadesConNuevaPropuesta) {
+  private boolean sonComunidadesValidas(Comunidad comunidad1, Comunidad comunidad2, List<Comunidad> comunidadesConNuevaPropuesta) {
     return sonDistintasComunidades(comunidad1, comunidad2) && !comunidadesConNuevaPropuesta.contains(comunidad1) && !comunidadesConNuevaPropuesta.contains(comunidad2);
   }
 

@@ -20,7 +20,7 @@ public class CondicionesTest {
 
   @BeforeEach
   public void init() {
-    Set<Integer> i = new HashSet<>();
+    List<Integer> i = new ArrayList<>();
     i.add(1);
     comunidad1 = new Comunidad(1, i,i, 1, i);
     comunidad2 = new Comunidad(2, i,i, 1, i);
