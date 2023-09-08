@@ -10,7 +10,6 @@ Esta API proporciona funcionalidades para sugerir y realizar fusiones de comunid
 - [Descripción](#descripción)
 - [Características](#características)
 - [Documentación](#documentación)
-- [Requisitos](#requisitos)
 - [Uso](#uso)
 
 
