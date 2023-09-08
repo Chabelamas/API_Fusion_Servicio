@@ -36,7 +36,7 @@ A continuación, se muestra un ejemplo básico de cómo usar la API:
 
 ```bash
 # Ejemplo de solicitud API
-curl -X POST http://localhost:8080 -d '{
+POST http://localhost:8080 -d '{
   "comunidades": [
     {
         "id": 1,
