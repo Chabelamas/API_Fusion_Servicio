@@ -10,8 +10,7 @@ public class GestorDeFusiones {
   public PayloadDTO ejecutarFusiones(List<Comunidad> comunidades, List<Fusion> fusiones) {
     List<Fusion> fusionesAceptadas = fusiones.stream().filter(x -> x.getEstado().equals(Fusion.EstadoFusion.ACEPTADA)).toList();
     List<Comunidad> nuevasComunidades = new Fusionador().ejecutar(comunidades, fusionesAceptadas);
-    List<Fusion> fusionesPropuestas = fusiones.stream().filter(x -> x.getEstado().equals(Fusion.EstadoFusion.PROPUESTA)).toList();
-
+    List<Fusion> fusionesPropuestas = fusiones.stream().filter(x -> !x.getEstado().equals(Fusion.EstadoFusion.ACEPTADA)).toList();
     return new PayloadDTO(nuevasComunidades, fusionesPropuestas);
   }
 }
