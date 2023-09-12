@@ -16,7 +16,7 @@ Esta API proporciona funcionalidades para sugerir y realizar fusiones de comunid
 ## Descripción
 
 Esta API está diseñada para facilitar la colaboración y el seguimiento de comunidades relacionadas con el transporte público y los establecimientos que ofrecen estos servicios. Permite a los usuarios sugerir cambios, mejoras y fusiones para garantizar un monitoreo eficiente y actualizado del estado de estos servicios.
-**Tras la creación de una fusión entre dos comunidades, el identificador de ésta se establecerá en null, permitiendo que el receptor actualice el valor de manera acorde a su contexto.**
+**Tras la creación de una fusión entre dos comunidades, el identificador de ésta se establecerá como nulo, permitiendo que el receptor actualice el valor de manera acorde a su contexto.**
 
 ## Características
 
