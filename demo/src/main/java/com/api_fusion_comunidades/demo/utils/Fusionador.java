@@ -41,7 +41,7 @@ public class Fusionador {
     nuevosMiembros.addAll(comunidad1.getIdMiembros());
     nuevosMiembros.addAll(comunidad2.getIdMiembros());
 
-    return new Comunidad(comunidad1.getId(), nuevosEstablecimientosObservados.stream().toList(), nuevosServiciosObservados.stream().toList(), 0, nuevosMiembros.stream().toList());
+    return new Comunidad(0, nuevosEstablecimientosObservados.stream().toList(), nuevosServiciosObservados.stream().toList(), 0, nuevosMiembros.stream().toList());
   }
 
 }
