@@ -15,13 +15,20 @@ public class Comunidad {
     private List<Integer> idServiciosObservados;
     private int gradoDeConfianza;
     private List<Integer> idMiembros;
+    private EstadoComunidad estado;
 
-    public Comunidad(Integer id, List<Integer> idEstablecimientoObservados, List<Integer> idServiciosObservados, int gradoDeConfianza, List<Integer> idMiembros) {
-        this.id = id;
+    public Comunidad(List<Integer> idEstablecimientoObservados, List<Integer> idServiciosObservados, List<Integer> idMiembros) {
+        this.id = 0;
         this.idEstablecimientoObservados = idEstablecimientoObservados;
         this.idServiciosObservados = idServiciosObservados;
-        this.gradoDeConfianza = gradoDeConfianza;
+        this.gradoDeConfianza = 0;
         this.idMiembros = idMiembros;
+        this.estado = EstadoComunidad.ACTIVADA;
+    }
+
+    public enum EstadoComunidad {
+        ACTIVADA,
+        DESACTIVADA
     }
 }
 

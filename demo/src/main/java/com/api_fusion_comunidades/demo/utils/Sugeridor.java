@@ -21,9 +21,9 @@ public class Sugeridor {
   public PayloadDTO sugerirNuevasFusiones(List<Comunidad> comunidades, List<Fusion> fusiones) {
     List<Comunidad> comunidadesConNuevaPropuesta = new ArrayList<>();
     List<Fusion> nuevasFusiones = new ArrayList<>(fusiones);
-
-    for(Comunidad comunidad1 : comunidades) {
-      for (Comunidad comunidad2 : comunidades) {
+    List<Comunidad> comunidadesActivas = comunidades.stream().filter(x -> x.getEstado().equals(Comunidad.EstadoComunidad.ACTIVADA)).toList();
+    for(Comunidad comunidad1 : comunidadesActivas) {
+      for (Comunidad comunidad2 : comunidadesActivas) {
         if (this.sonComunidadesValidas(comunidad1, comunidad2, comunidadesConNuevaPropuesta)
             && this.cumpleCondicionesDeFusion(comunidad1, comunidad2, fusiones)) {
           nuevasFusiones.add(new Fusion(comunidad1, comunidad2));

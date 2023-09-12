@@ -8,21 +8,23 @@ import java.util.*;
 public class Fusionador {
 
   public List<Comunidad> ejecutar(List<Comunidad> comunidades, List<Fusion> fusiones) {
+    List<Comunidad> nuevasComunidades = new ArrayList<>(comunidades);
+
     for(Fusion fusion : fusiones) {
       Comunidad nuevaComunidad = this.crearComunidadFusionada(fusion.getComunidad1(), fusion.getComunidad2());
 
-      eliminarComunidadPorId(comunidades, fusion.getComunidad1().getId());
-      eliminarComunidadPorId(comunidades, fusion.getComunidad2().getId());
-      comunidades.add(nuevaComunidad);
+      desactivarComunidad(comunidades, fusion.getComunidad1().getId());
+      desactivarComunidad(comunidades, fusion.getComunidad2().getId());
+      nuevasComunidades.add(nuevaComunidad);
     }
 
-    return comunidades;
+    return nuevasComunidades;
   }
 
-  private void eliminarComunidadPorId(List<Comunidad> comunidades, Integer id) {
+  private void desactivarComunidad(List<Comunidad> comunidades, Integer id) {
     for (Comunidad comunidad : comunidades) {
       if (Objects.equals(comunidad.getId(), id)) {
-        comunidades.remove(comunidad);
+        comunidad.setEstado(Comunidad.EstadoComunidad.DESACTIVADA);
         break;
       }
     }
@@ -41,7 +43,7 @@ public class Fusionador {
     nuevosMiembros.addAll(comunidad1.getIdMiembros());
     nuevosMiembros.addAll(comunidad2.getIdMiembros());
 
-    return new Comunidad(0, nuevosEstablecimientosObservados.stream().toList(), nuevosServiciosObservados.stream().toList(), 0, nuevosMiembros.stream().toList());
+    return new Comunidad( nuevosEstablecimientosObservados.stream().toList(), nuevosServiciosObservados.stream().toList(), nuevosMiembros.stream().toList());
   }
 
 }
