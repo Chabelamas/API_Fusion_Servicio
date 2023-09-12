@@ -7,7 +7,11 @@
   "info" : {
     "version" : "1.0.0",
     "title" : "API_Fusion_Comunidades",
-    "description" : "API para fusionar comunidades en sistema de monitoreo de estado de servicios de transporte público y de establecimientos."
+    "description" : "API para fusionar comunidades en sistema de monitoreo de estado de servicios de transporte público y de establecimientos. https://github.com/Chabelamas/API_Fusion_Servicio"
+  },
+  "externalDocs" : {
+    "description" : "GitHub",
+    "url" : "https://github.com/Chabelamas/API_Fusion_Servicio"
   },
   "paths" : {
     "/" : {
