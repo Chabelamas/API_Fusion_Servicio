@@ -18,7 +18,7 @@ public class Comunidad {
     private EstadoComunidad estado;
 
     public Comunidad(List<Integer> idEstablecimientoObservados, List<Integer> idServiciosObservados, List<Integer> idMiembros) {
-        this.id = 0;
+        this.id = null;
         this.idEstablecimientoObservados = idEstablecimientoObservados;
         this.idServiciosObservados = idServiciosObservados;
         this.gradoDeConfianza = 0;
