@@ -16,6 +16,7 @@ Esta API proporciona funcionalidades para sugerir y realizar fusiones de comunid
 ## Descripción
 
 Esta API está diseñada para facilitar la colaboración y el seguimiento de comunidades relacionadas con el transporte público y los establecimientos que ofrecen estos servicios. Permite a los usuarios sugerir cambios, mejoras y fusiones para garantizar un monitoreo eficiente y actualizado del estado de estos servicios.
+*Tras la fusión de las comunidades, los identificadores se restablecerán a cero, permitiendo que el receptor actualice el valor de manera acorde con su contexto.*
 
 ## Características
 
@@ -42,46 +43,80 @@ POST http://localhost:8080 -d '{
         "idEstablecimientoObservados": [1, 2, 3, 4],
         "idServiciosObservados": [1, 2, 3, 4],
         "gradoDeConfianza": 1,
-        "idMiembros": [1, 2, 3, 4]
+        "idMiembros": [1, 2, 3, 4],
+        "estado": "ACTIVADA"
     },
     {
         "id": 2,
         "idEstablecimientoObservados": [1, 2, 3, 5],
         "idServiciosObservados": [1, 2, 3, 5],
         "gradoDeConfianza": 1,
-        "idMiembros": [1, 2, 3, 5]
+        "idMiembros": [1, 2, 3, 5],
+        "estado": "ACTIVADA"
     },
     {
         "id": 3,
         "idEstablecimientoObservados": [2],
         "idServiciosObservados": [2],
         "gradoDeConfianza": 2,
-        "idMiembros": [2]
+        "idMiembros": [2],
+        "estado": "ACTIVADA"
     },
     {
         "id": 4,
         "idEstablecimientoObservados": [2],
         "idServiciosObservados": [2],
         "gradoDeConfianza": 2,
-        "idMiembros": [2]
+        "idMiembros": [2],
+        "estado": "ACTIVADA"
     }
   ],
-"fusiones": [
+  "fusiones": [
       {
             "estado": "ACEPTADA",
             "comunidad1": {
                 "id": 1,
-                "idEstablecimientoObservados": [1, 2, 3, 4],
-                "idServiciosObservados": [1, 2, 3, 4],
+                "idEstablecimientoObservados": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "idServiciosObservados": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
                 "gradoDeConfianza": 1,
-                "idMiembros": [1, 2, 3, 4]
+                "idMiembros": [
+                    1,
+                    2,
+                    3,
+                    4
+                ]
             },
             "comunidad2": {
                 "id": 2,
-                "idEstablecimientoObservados": [1, 2, 3, 5],
-                "idServiciosObservados": [1, 2, 3, 5],
+                "idEstablecimientoObservados": [
+                    1,
+                    2,
+                    3,
+                    5
+                ],
+                "idServiciosObservados": [
+                    1,
+                    2,
+                    3,
+                    5
+                ],
                 "gradoDeConfianza": 1,
-                "idMiembros": [1, 2, 3, 5]
+                "idMiembros": [
+                    1,
+                    2,
+                    3,
+                    5
+                ]
             },
             "fechaCreada": "2023-09-07T17:14:25.5677323"
         }
